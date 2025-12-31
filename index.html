@@ -6,7 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    /* ==== FIX SCROLL TOTAL ==== */
+    /* ==== GLOBAL FIX ==== */
+    * {
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      user-select: none;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -27,40 +33,39 @@
     .wrapper {
       width: 100%;
       max-width: 760px;
-      padding: 30px 20px 90px;
+      padding: 28px 20px 100px;
       text-align: center;
       box-sizing: border-box;
     }
 
     .time {
-  font-size: 0.8em;
-  color: #bfbfbf;
-  letter-spacing: 2px;
-  margin-bottom: 50px;
-  text-transform: uppercase;
-}
+      font-size: 0.85em;
+      color: #d0d0d0;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
 
     .arrow {
       font-size: 3em;
-      color: #888;
+      color: #cfcfcf;
       cursor: pointer;
-      user-select: none;
       margin: 12px 0;
-      transition: transform 0.15s, color 0.15s;
+      transition: transform 0.15s ease, opacity 0.15s ease;
     }
 
     .arrow:active {
       transform: scale(0.9);
-      color: #aaa;
+      opacity: 0.7;
     }
 
     .box {
       background: #111;
       border: 1px solid #222;
-      border-radius: 14px;
-      padding: 38px 34px;
-      margin: 18px 0;
-      min-height: 280px;
+      border-radius: 16px;
+      padding: 40px 36px;
+      margin: 20px 0;
+      min-height: 300px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -69,23 +74,44 @@
     .text {
       width: 100%;
       text-align: left;
-      line-height: 1.9;
       font-size: 1.1em;
+      line-height: 1.9;
       letter-spacing: 0.4px;
       white-space: pre-wrap;
     }
 
     footer {
-  position: fixed;
-  bottom: 18px;
-  font-size: 0.8em;
-  color: #bdbdbd;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
+      position: fixed;
+      bottom: 18px;
+      font-size: 0.85em;
+      color: #d0d0d0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .music-control {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      font-size: 1.3em;
+      color: #ccc;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .music-control:hover {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
+
+  <div class="music-control" id="musicBtn">🔈</div>
+
+  <audio id="bgMusic" loop>
+    <source src="quot.mp3" type="audio/mpeg">
+  </audio>
 
   <div class="wrapper">
     <div class="time" id="time"></div>
