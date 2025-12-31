@@ -95,7 +95,7 @@ const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 let isPlaying = false;
 
-music.volume = 100;
+music.volume = 1.0;
 
 musicBtn.addEventListener("click", () => {
   if (!isPlaying) {
